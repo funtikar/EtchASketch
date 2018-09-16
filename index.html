@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Funtikar's Etch a Sketch</title></head>
+<body>   
+<div class="main">
+<br>
+<button id = "new_c">NEW CANVAS</button> 
+<br>
+<br>
+<div class="container">
+
+
+</div>
+
+
+
+
+</div>
+</body> 
+<style>
+.main {
+    text-align: center;
+}
+
+.container {
+        display: grid;
+        height: 800px;
+        width: 800px;
+        border: solid 2px red;
+        margin: 0 auto; 
+}
+    
+</style>
+
+<script>
+const e_1 = document.querySelector('.container');
+
+
+function new_kanvas() {
+let gg = prompt("What would the height and width be? For example, answer 24 for 24 by 24 ")
+ggx = gg * gg;
+var i;
+for (i = 0; i < ggx; i++) { 
+    const i = document.createElement('div');
+    i.classList.add('gr_item');
+    e_1.appendChild(i);
+}
+const c_2 = document.querySelectorAll('.gr_item');
+
+for (cc = 0; cc < ggx; cc++) { 
+c_2[cc].style.cssText = "background-color: black;";
+}
+
+
+e_1.style.cssText = "grid-template-columns: repeat("+gg+" ,1fr);grid-template-rows: repeat("+gg+",1fr);"
+
+document.addEventListener("mouseover", function(e){
+    if (e.target.className == 'gr_item') {
+        e.target.style.cssText = "background-color: white;"
+    }
+});
+
+}
+
+new_kanvas()
+
+document.getElementById("new_c").addEventListener("click", function(){
+    new_kanvas();
+});
+//grid-template-columns: repeat(256,1fr);
+//grid-template-rows: repeat(256,1fr);
+</script>
+
+
+
+</html>
